@@ -88,6 +88,24 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    async (2.12.0)
+      console (~> 1.25, >= 1.25.2)
+      fiber-annotation
+      io-event (~> 1.6)
+    async-http (0.67.0)
+      async (>= 2.10.2)
+      async-pool (>= 0.6.1)
+      io-endpoint (~> 0.10, >= 0.10.3)
+      io-stream (~> 0.4)
+      protocol-http (~> 0.26.0)
+      protocol-http1 (~> 0.19.0)
+      protocol-http2 (~> 0.17.0)
+      traces (>= 0.10.0)
+    async-http-faraday (0.14.0)
+      async-http (~> 0.42)
+      faraday
+    async-pool (0.6.1)
+      async (>= 1.25)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
     base64 (0.2.0)
@@ -111,6 +129,10 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.3.1)
     connection_pool (2.4.1)
+    console (1.25.2)
+      fiber-annotation
+      fiber-local (~> 1.1)
+      json
     crack (1.0.0)
       bigdecimal
       rexml
@@ -141,6 +163,10 @@ GEM
     ffi (1.17.0-x86-linux-gnu)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
+    fiber-annotation (0.2.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
@@ -154,6 +180,9 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
+    io-endpoint (0.10.3)
+    io-event (1.6.0)
+    io-stream (0.4.0)
     irb (1.13.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
@@ -209,6 +238,13 @@ GEM
       racc
     pg (1.5.6)
     popper_js (2.11.8)
+    protocol-hpack (1.4.3)
+    protocol-http (0.26.5)
+    protocol-http1 (0.19.1)
+      protocol-http (~> 0.22)
+    protocol-http2 (0.17.0)
+      protocol-hpack (~> 1.4)
+      protocol-http (~> 0.18)
     psych (5.1.2)
       stringio
     public_suffix (5.0.5)
@@ -345,6 +381,7 @@ GEM
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
+    traces (0.11.1)
     turbo-rails (2.0.5)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -380,6 +417,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  async-http-faraday
   bcrypt (~> 3.1.7)
   bootsnap
   bootstrap (~> 5.3.3)

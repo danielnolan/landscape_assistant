@@ -37,14 +37,18 @@ module Assistants
     end
 
     def handle_tool_calls(chunk)
+      Rails.logger.debug("handle tools called")
       tools_to_call = chunk.dig("required_action", "submit_tool_outputs", "tool_calls")
       my_tool_outputs = tools_to_call.map do |tool|
         function_name = tool.dig("function", "name")
         arguments = tool.dig("function", "arguments")
-        # TODO: Figure out async/concurrent API calls
-        tool_output = tools.public_send(function_name, arguments)
-        {tool_call_id: tool["id"], output: tool_output}
-      end
+        Async do
+          tool_output = tools.public_send(function_name, arguments)
+          {tool_call_id: tool["id"], output: tool_output}
+        end
+      end.map(&:wait)
+
+      Rails.logger.debug(my_tool_outputs)
 
       client.runs.submit_tool_outputs(
         thread_id: thread_id,
@@ -54,6 +58,8 @@ module Assistants
           stream: stream_response
         }
       )
+    ensure
+      Faraday.default_connection.close
     end
 
     def tools
