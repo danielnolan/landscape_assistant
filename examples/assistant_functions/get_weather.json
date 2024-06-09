@@ -1,0 +1,92 @@
+{
+"name": "get_weather",
+"description": "Determine weather in my location",
+"parameters": {
+  "type": "object",
+  "properties": {
+    "location": {
+      "type": "string",
+      "description": "Latitude and longitude separated by a comma"
+    },
+    "units": {
+      "type": "string",
+      "description": "Units to display measurements in",
+      "enum": [
+        "imperial",
+        "metric"
+      ]
+    },
+    "fields": {
+      "type": "array",
+      "description": "Fields is an array of stings for the API to return in it's response",
+      "items": {
+        "type": "string",
+        "enum": [
+          "temperature",
+          "humidity",
+          "pressureSeaLevel",
+          "windSpeed",
+          "windDirection",
+          "weatherCode",
+          "visibility",
+          "pollutantO3",
+          "windGust",
+          "cloudCover",
+          "precipitationType",
+          "precipitationProbability",
+          "pollutantCO",
+          "mepIndex",
+          "mepHealthConcern",
+          "mepPrimaryPollutant",
+          "cloudBase",
+          "cloudCeiling",
+          "cloudCover",
+          "dewPoint",
+          "epaIndex",
+          "epaHealthConcern",
+          "epaPrimaryPollutant",
+          "temperatureApparent",
+          "fireIndex",
+          "pollutantNO2",
+          "pollutantO3",
+          "particulateMatter10",
+          "particulateMatter25",
+          "grassIndex",
+          "treeIndex",
+          "weedIndex",
+          "pressureSurfaceLevel",
+          "solarGHI",
+          "pollutantSO2",
+          "uvIndex",
+          "uvHealthConcern",
+          "windGust"
+        ]
+      }
+    },
+    "timesteps": {
+      "type": "array",
+      "description": "array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily",
+      "items": {
+        "type": "string",
+        "enum": [
+          "1h",
+          "1d",
+          "current"
+        ]
+      }
+    },
+    "startTime": {
+      "type": "string",
+      "description": "Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now)."
+    },
+    "endTime": {
+      "type": "string",
+      "description": "Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."
+    }
+  },
+  "required": [
+    "location",
+    "fields"
+  ]
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
