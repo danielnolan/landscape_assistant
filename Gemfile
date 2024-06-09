@@ -13,7 +13,7 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 gem "redis", ">= 4.0.1"
-gem "ruby-openai", git: "https://github.com/willywg/ruby-openai" , branch: "add_vision_purpose_to_files"
+gem "ruby-openai", git: "https://github.com/willywg/ruby-openai", branch: "add_vision_purpose_to_files"
 gem "sassc-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
@@ -22,6 +22,8 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
+  gem "factory_bot_rails"
+  gem "rspec-rails", "~> 6.1.0"
   gem "standard"
 end
 
@@ -33,4 +35,6 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 6.0"
+  gem "webmock"
 end

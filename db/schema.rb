@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_195501) do
     t.string "thread_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["thread_id"], name: "index_conversations_on_thread_id"
+    t.index ["thread_id"], name: "index_conversations_on_thread_id", unique: true
   end
 
 end

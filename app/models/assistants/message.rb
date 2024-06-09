@@ -33,7 +33,7 @@ module Assistants
     def upload_message_image
       response = client.files.upload(
         parameters: {
-          file: params[:files].to_path,
+          file: params["files"].to_path,
           purpose: "vision"
         }
       )
@@ -49,7 +49,7 @@ module Assistants
     end
 
     def thread_id
-      @thread_id ||= params[:thread_id]
+      @thread_id ||= params["thread_id"]
     end
   end
 end
