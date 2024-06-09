@@ -1,0 +1,4 @@
+<li id="<%= dom_id(conversation) %>" class="nav-item">
+  <%= l conversation.created_at %>
+  <%= link_to(conversation.title, root_path(thread_id: conversation.thread_id), class: "nav-link") %>
+</li>

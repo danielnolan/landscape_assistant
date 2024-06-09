@@ -14,12 +14,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_195501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chat_threads", force: :cascade do |t|
+  create_table "conversations", force: :cascade do |t|
     t.string "title", null: false
     t.string "thread_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["thread_id"], name: "index_chat_threads_on_thread_id"
+    t.index ["thread_id"], name: "index_conversations_on_thread_id"
   end
 
 end

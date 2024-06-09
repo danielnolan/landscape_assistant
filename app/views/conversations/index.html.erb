@@ -9,17 +9,13 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Threads</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Conversations</h5>
         <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul id="threads" class="navbar-nav navbar-light justify-content-end flex-grow-1 pe-3">
-          <% @threads.each do |thread| %>
-            <li class="nav-item">
-              <%= thread.created_at %>
-              <%= link_to(thread.title, messages_path(thread_id: thread.thread_id), class: "nav-link") %>
-            </li>
-          <% end %>
+        <%= turbo_stream_from :conversations %>
+        <ul id="conversations" class="navbar-nav navbar-light justify-content-end flex-grow-1 pe-3">
+          <%= render partial: "conversations/conversation", collection: @conversations %>
         </ul>
       </div>
     </div>
