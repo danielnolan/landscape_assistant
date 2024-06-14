@@ -16,7 +16,7 @@ forecast.
 ## Running the app
 * run `bin/setup`
 * run `rails credentials:edit` and add the following secrets. If you
-  don't have ecowitt weather station, that's fine you just won't configure that
+  don't an have ecowitt weather station, that's fine you just won't configure that
   function for your assistant.
 
 ``` yaml
