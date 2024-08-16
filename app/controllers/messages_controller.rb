@@ -1,13 +1,19 @@
 class MessagesController < ApplicationController
-  include ActionController::Live
-  skip_before_action :verify_authenticity_token
+  def new
+    @message = Message.new
+  end
 
   def create
-    response.headers["Content-Type"] = "text/event-stream"
-    sse = SSE.new(response.stream, retry: 300, event: "event-name")
-    Assistants::Message.new(params).create
-    Assistants::Run.new(sse, params[:thread_id]).stream
-  ensure
-    sse.close
+    @message = Message.new(message_params).create
+    CreateRunJob.perform_later(@message.id, @message.thread_id)
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content, :thread_id).merge(role: "user")
   end
 end
