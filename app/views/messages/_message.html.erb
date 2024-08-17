@@ -1,4 +1,7 @@
-<%= tag.div id: dom_id(message) do %>
-  <%= message.role %>
+<%= tag.div id: dom_id(message),
+  class: class_names('p-2', { 'bg-secondary-subtle': message.assistant_message? }) do %>
+  <%= tag.span class: "badge bg-info mb-1" do %> 
+    <%= message.role %>
+  <% end %>
   <%= markdown(message.content) %>
 <% end %>

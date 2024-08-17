@@ -23,7 +23,7 @@
 </nav>
 <main class="col px-2 pt-2">
   <%= turbo_stream_from :messages %>
-  <div id="messages" data-controller="markdown">
+  <div id="messages" class="mb-4">
     <%= render @messages %>
   </div>
   <%= render "messages/form" %>

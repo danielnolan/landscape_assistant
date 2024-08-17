@@ -31,21 +31,24 @@ class Run
     proc do |chunk, _bytesize|
       if chunk["object"] == "thread.message.delta"
         content << chunk.dig("delta", "content", 0, "text", "value")
-        message = Message.new(content: content, role: "system")
-        broadcast_response(message)
+        broadcast_response
       elsif chunk.dig("status") == "requires_action"
         handle_tool_calls(chunk)
       end
     end
   end
 
-  def broadcast_response(message)
+  def broadcast_response
     Turbo::StreamsChannel.broadcast_append_to(
       :messages,
       target: "messages",
       partial: "messages/message",
-      locals: {message: message}
+      locals: {message: assistant_message}
     )
+  end
+
+  def assistant_message
+    Message.new(id: "assistant_#{message_id}", content: content, role: "assistant")
   end
 
   def handle_tool_calls(chunk)
