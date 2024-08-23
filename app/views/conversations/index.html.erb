@@ -21,10 +21,13 @@
     </div>
   </div>
 </nav>
-<main class="col px-2 pt-2">
+<main class="container">
   <%= turbo_stream_from :messages %>
-  <div id="messages" class="mb-4">
+  <div id="messages" class="mb-4 h-100 w-75">
     <%= render @messages %>
+    <div id="anchor"></div>
   </div>
-  <%= render "messages/form" %>
+  <div>
+    <%= render "messages/form" %>
+  </div>
 </main>

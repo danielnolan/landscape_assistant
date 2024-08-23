@@ -1,1 +1,15 @@
 @import "bootstrap";
+
+#messages {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#messages * {
+  overflow-anchor: none;
+}
+
+#anchor {
+  overflow-anchor: auto;
+  height: 1px;
+}

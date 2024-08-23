@@ -1,6 +1,11 @@
 <%= form_with model: @message, method: :post do |form| %>
-  <%= form.label :content, "Message" %>
-  <%= form.text_field :content %>
   <%= form.hidden_field :thread_id, value: @thread_id %>
-  <%= form.submit "Send" %>
+  <div class="d-flex flex-row w-75">
+    <div class="flex-grow-1">
+      <%= form.text_field :content, class: "form-control", placeholder: "How can I help?" %>
+    </div>
+    <div class="ms-2">
+      <%= form.submit "Send", class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>

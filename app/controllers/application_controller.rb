@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
     assistant = client.assistants.retrieve(id: assistant_id)
     assistant["name"]
   end
+
+  private
+
+  def client
+    @client ||= OpenAI::Client.new
+  end
 end

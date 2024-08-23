@@ -39,9 +39,9 @@ class Run
   end
 
   def broadcast_response
-    Turbo::StreamsChannel.broadcast_append_to(
+    Turbo::StreamsChannel.broadcast_replace_to(
       :messages,
-      target: "messages",
+      target: assistant_message,
       partial: "messages/message",
       locals: {message: assistant_message}
     )
