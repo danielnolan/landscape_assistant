@@ -39,4 +39,5 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 6.0"
   gem "webmock"
+  gem "vcr"
 end

@@ -1,0 +1,278 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_iGlF3J9pDu2CIe9UKMwemqmc/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Hey what''s up"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <api_key>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Sep 2024 13:52:37 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-unejx91urqkrngkx4pspqdo4
+      X-Request-Id:
+      - req_9e7113c79711bf021e156755e5551d46
+      Openai-Processing-Ms:
+      - '75'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=yu4_By30SqRuxV42F18ynd.97QrSVvqjr7Puk1ik778-1726235557-1.0.1.1-wF.zawyIolyGKM7UczYHGHTrNmZjNoFZbh20Inn058nqIi5JYIXrXvURm8YcjYqEkzdEIhMFMP7EQ4o3IQFz6g;
+        path=/; expires=Fri, 13-Sep-24 14:22:37 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=1qPN7HHEKLVVOBPGRrhYfTEPDVWU_ev5SlwG3VZefwk-1726235557175-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c289e679e65457b-ATL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "msg_MqsdyNr1i3vG8U3Exzmc8Zcq",
+          "object": "thread.message",
+          "created_at": 1726235557,
+          "assistant_id": null,
+          "thread_id": "thread_iGlF3J9pDu2CIe9UKMwemqmc",
+          "run_id": null,
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": {
+                "value": "Hey what's up",
+                "annotations": []
+              }
+            }
+          ],
+          "attachments": [],
+          "metadata": {}
+        }
+  recorded_at: Fri, 13 Sep 2024 13:52:37 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_iGlF3J9pDu2CIe9UKMwemqmc/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"<assistant_id>","additional_instructions":"The current
+        date and time is 2024-09-13T13:52:39+00:00. \n The current thread_id is thread_iGlF3J9pDu2CIe9UKMwemqmc.","stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <api_key>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Sep 2024 13:52:40 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-unejx91urqkrngkx4pspqdo4
+      X-Request-Id:
+      - req_10db505a7033eb7fd05b7c42d1627f2b
+      Openai-Processing-Ms:
+      - '935'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=sV_B6NRxuEUPW8pCyJy1gzPXJ0eIASgs_ua4_KPLdHI-1726235560-1.0.1.1-RdLhySJOM4qUBJaqr6Kv9fxyho1nC9v4cmpZUYT.ZmtP6tGwWLj6AGAZEXm58E8MefbhxW_z4UpG29wuIjr3Gg;
+        path=/; expires=Fri, 13-Sep-24 14:22:40 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=QLhgTjZPVyTAu4xJCSC3oJmxPKIfCEWEbnZLZSHLSU4-1726235560626-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c289e77bdb6baf2-ATL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: thread.run.created
+        data: {"id":"run_24KJwVMbnXXN4ehKx6rOLFYe","object":"thread.run","created_at":1726235560,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","status":"queued","started_at":null,"expires_at":1726236160,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4o-mini","instructions":"You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6 The current date and time is 2024-09-13T13:52:39+00:00. \n The current thread_id is thread_iGlF3J9pDu2CIe9UKMwemqmc.","tools":[{"type":"function","function":{"name":"get_weather","description":"Determine weather in my location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"Latitude and longitude separated by a comma"},"units":{"type":"string","description":"Units to display measurements in","enum":["imperial","metric"]},"fields":{"type":"array","description":"Fields is an array of strings for the API to return in it's response","items":{"type":"string","enum":["temperature","humidity","pressureSeaLevel","windSpeed","windDirection","weatherCode","visibility","pollutantO3","windGust","cloudCover","precipitationType","precipitationProbability","pollutantCO","mepIndex","mepHealthConcern","mepPrimaryPollutant","cloudBase","cloudCeiling","cloudCover","dewPoint","epaIndex","epaHealthConcern","epaPrimaryPollutant","temperatureApparent","fireIndex","pollutantNO2","pollutantO3","particulateMatter10","particulateMatter25","grassIndex","treeIndex","weedIndex","pressureSurfaceLevel","solarGHI","pollutantSO2","uvIndex","uvHealthConcern","windGust"]}},"timesteps":{"type":"array","description":"array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily","items":{"type":"string","enum":["1h","1d","current"]}},"startTime":{"type":"string","description":"Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."},"endTime":{"type":"string","description":"End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."}},"required":["location","fields"]},"strict":false}},{"type":"function","function":{"name":"save_conversation","description":"Save the current conversation with a clever title based on the conversation messages","parameters":{"type":"object","properties":{"title":{"type":"string","description":"The clever title for the thread based off the conversation messages"},"thread_id":{"type":"string","description":"The current thread id to save"}},"required":["title","thread_id"]},"strict":false}},{"type":"function","function":{"name":"get_local_weather_and_soil_moisture","description":"Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.","parameters":{"type":"object","properties":{},"required":[]},"strict":false}}],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":0.2,"top_p":1.0,"max_completion_tokens":null,"max_prompt_tokens":null,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto","parallel_tool_calls":true}
+
+        event: thread.run.queued
+        data: {"id":"run_24KJwVMbnXXN4ehKx6rOLFYe","object":"thread.run","created_at":1726235560,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","status":"queued","started_at":null,"expires_at":1726236160,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4o-mini","instructions":"You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6 The current date and time is 2024-09-13T13:52:39+00:00. \n The current thread_id is thread_iGlF3J9pDu2CIe9UKMwemqmc.","tools":[{"type":"function","function":{"name":"get_weather","description":"Determine weather in my location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"Latitude and longitude separated by a comma"},"units":{"type":"string","description":"Units to display measurements in","enum":["imperial","metric"]},"fields":{"type":"array","description":"Fields is an array of strings for the API to return in it's response","items":{"type":"string","enum":["temperature","humidity","pressureSeaLevel","windSpeed","windDirection","weatherCode","visibility","pollutantO3","windGust","cloudCover","precipitationType","precipitationProbability","pollutantCO","mepIndex","mepHealthConcern","mepPrimaryPollutant","cloudBase","cloudCeiling","cloudCover","dewPoint","epaIndex","epaHealthConcern","epaPrimaryPollutant","temperatureApparent","fireIndex","pollutantNO2","pollutantO3","particulateMatter10","particulateMatter25","grassIndex","treeIndex","weedIndex","pressureSurfaceLevel","solarGHI","pollutantSO2","uvIndex","uvHealthConcern","windGust"]}},"timesteps":{"type":"array","description":"array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily","items":{"type":"string","enum":["1h","1d","current"]}},"startTime":{"type":"string","description":"Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."},"endTime":{"type":"string","description":"End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."}},"required":["location","fields"]},"strict":false}},{"type":"function","function":{"name":"save_conversation","description":"Save the current conversation with a clever title based on the conversation messages","parameters":{"type":"object","properties":{"title":{"type":"string","description":"The clever title for the thread based off the conversation messages"},"thread_id":{"type":"string","description":"The current thread id to save"}},"required":["title","thread_id"]},"strict":false}},{"type":"function","function":{"name":"get_local_weather_and_soil_moisture","description":"Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.","parameters":{"type":"object","properties":{},"required":[]},"strict":false}}],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":0.2,"top_p":1.0,"max_completion_tokens":null,"max_prompt_tokens":null,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto","parallel_tool_calls":true}
+
+        event: thread.run.in_progress
+        data: {"id":"run_24KJwVMbnXXN4ehKx6rOLFYe","object":"thread.run","created_at":1726235560,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","status":"in_progress","started_at":1726235560,"expires_at":1726236160,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4o-mini","instructions":"You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6 The current date and time is 2024-09-13T13:52:39+00:00. \n The current thread_id is thread_iGlF3J9pDu2CIe9UKMwemqmc.","tools":[{"type":"function","function":{"name":"get_weather","description":"Determine weather in my location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"Latitude and longitude separated by a comma"},"units":{"type":"string","description":"Units to display measurements in","enum":["imperial","metric"]},"fields":{"type":"array","description":"Fields is an array of strings for the API to return in it's response","items":{"type":"string","enum":["temperature","humidity","pressureSeaLevel","windSpeed","windDirection","weatherCode","visibility","pollutantO3","windGust","cloudCover","precipitationType","precipitationProbability","pollutantCO","mepIndex","mepHealthConcern","mepPrimaryPollutant","cloudBase","cloudCeiling","cloudCover","dewPoint","epaIndex","epaHealthConcern","epaPrimaryPollutant","temperatureApparent","fireIndex","pollutantNO2","pollutantO3","particulateMatter10","particulateMatter25","grassIndex","treeIndex","weedIndex","pressureSurfaceLevel","solarGHI","pollutantSO2","uvIndex","uvHealthConcern","windGust"]}},"timesteps":{"type":"array","description":"array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily","items":{"type":"string","enum":["1h","1d","current"]}},"startTime":{"type":"string","description":"Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."},"endTime":{"type":"string","description":"End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."}},"required":["location","fields"]},"strict":false}},{"type":"function","function":{"name":"save_conversation","description":"Save the current conversation with a clever title based on the conversation messages","parameters":{"type":"object","properties":{"title":{"type":"string","description":"The clever title for the thread based off the conversation messages"},"thread_id":{"type":"string","description":"The current thread id to save"}},"required":["title","thread_id"]},"strict":false}},{"type":"function","function":{"name":"get_local_weather_and_soil_moisture","description":"Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.","parameters":{"type":"object","properties":{},"required":[]},"strict":false}}],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":0.2,"top_p":1.0,"max_completion_tokens":null,"max_prompt_tokens":null,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto","parallel_tool_calls":true}
+
+        event: thread.run.step.created
+        data: {"id":"step_eGMIBCwGCTPawg5gXfUgF2c1","object":"thread.run.step","created_at":1726235561,"run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","type":"message_creation","status":"in_progress","cancelled_at":null,"completed_at":null,"expires_at":1726236160,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_1Na4J10m24AEkZFKxJHo0M4g"}},"usage":null}
+
+        event: thread.run.step.in_progress
+        data: {"id":"step_eGMIBCwGCTPawg5gXfUgF2c1","object":"thread.run.step","created_at":1726235561,"run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","type":"message_creation","status":"in_progress","cancelled_at":null,"completed_at":null,"expires_at":1726236160,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_1Na4J10m24AEkZFKxJHo0M4g"}},"usage":null}
+
+        event: thread.message.created
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message","created_at":1726235561,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","status":"in_progress","incomplete_details":null,"incomplete_at":null,"completed_at":null,"role":"assistant","content":[],"attachments":[],"metadata":{}}
+
+        event: thread.message.in_progress
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message","created_at":1726235561,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","status":"in_progress","incomplete_details":null,"incomplete_at":null,"completed_at":null,"role":"assistant","content":[],"attachments":[],"metadata":{}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"Hello","annotations":[]}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"!"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" I'm"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" here"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" to"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" assist"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" you"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" with"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" all"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" your"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" landscaping"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":","}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" gardening"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":","}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" and"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" lawn"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" care"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" needs"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" at"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" H"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"umming"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"bird"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" Holl"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"er"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"."}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" How"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" can"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" I"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" help"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" you"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" today"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"?"}}]}}
+
+        event: thread.message.completed
+        data: {"id":"msg_1Na4J10m24AEkZFKxJHo0M4g","object":"thread.message","created_at":1726235561,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","status":"completed","incomplete_details":null,"incomplete_at":null,"completed_at":1726235562,"role":"assistant","content":[{"type":"text","text":{"value":"Hello! I'm here to assist you with all your landscaping, gardening, and lawn care needs at Hummingbird Holler. How can I help you today?","annotations":[]}}],"attachments":[],"metadata":{}}
+
+        event: thread.run.step.completed
+        data: {"id":"step_eGMIBCwGCTPawg5gXfUgF2c1","object":"thread.run.step","created_at":1726235561,"run_id":"run_24KJwVMbnXXN4ehKx6rOLFYe","assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","type":"message_creation","status":"completed","cancelled_at":null,"completed_at":1726235563,"expires_at":1726236160,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_1Na4J10m24AEkZFKxJHo0M4g"}},"usage":{"prompt_tokens":1172,"completion_tokens":34,"total_tokens":1206}}
+
+        event: thread.run.completed
+        data: {"id":"run_24KJwVMbnXXN4ehKx6rOLFYe","object":"thread.run","created_at":1726235560,"assistant_id":"<assistant_id>","thread_id":"thread_iGlF3J9pDu2CIe9UKMwemqmc","status":"completed","started_at":1726235560,"expires_at":null,"cancelled_at":null,"failed_at":null,"completed_at":1726235563,"required_action":null,"last_error":null,"model":"gpt-4o-mini","instructions":"You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6 The current date and time is 2024-09-13T13:52:39+00:00. \n The current thread_id is thread_iGlF3J9pDu2CIe9UKMwemqmc.","tools":[{"type":"function","function":{"name":"get_weather","description":"Determine weather in my location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"Latitude and longitude separated by a comma"},"units":{"type":"string","description":"Units to display measurements in","enum":["imperial","metric"]},"fields":{"type":"array","description":"Fields is an array of strings for the API to return in it's response","items":{"type":"string","enum":["temperature","humidity","pressureSeaLevel","windSpeed","windDirection","weatherCode","visibility","pollutantO3","windGust","cloudCover","precipitationType","precipitationProbability","pollutantCO","mepIndex","mepHealthConcern","mepPrimaryPollutant","cloudBase","cloudCeiling","cloudCover","dewPoint","epaIndex","epaHealthConcern","epaPrimaryPollutant","temperatureApparent","fireIndex","pollutantNO2","pollutantO3","particulateMatter10","particulateMatter25","grassIndex","treeIndex","weedIndex","pressureSurfaceLevel","solarGHI","pollutantSO2","uvIndex","uvHealthConcern","windGust"]}},"timesteps":{"type":"array","description":"array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily","items":{"type":"string","enum":["1h","1d","current"]}},"startTime":{"type":"string","description":"Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."},"endTime":{"type":"string","description":"End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."}},"required":["location","fields"]},"strict":false}},{"type":"function","function":{"name":"save_conversation","description":"Save the current conversation with a clever title based on the conversation messages","parameters":{"type":"object","properties":{"title":{"type":"string","description":"The clever title for the thread based off the conversation messages"},"thread_id":{"type":"string","description":"The current thread id to save"}},"required":["title","thread_id"]},"strict":false}},{"type":"function","function":{"name":"get_local_weather_and_soil_moisture","description":"Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.","parameters":{"type":"object","properties":{},"required":[]},"strict":false}}],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":0.2,"top_p":1.0,"max_completion_tokens":null,"max_prompt_tokens":null,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":{"prompt_tokens":1172,"completion_tokens":34,"total_tokens":1206},"response_format":"auto","tool_choice":"auto","parallel_tool_calls":true}
+
+        event: done
+        data: [DONE]
+
+  recorded_at: Fri, 13 Sep 2024 13:52:43 GMT
+recorded_with: VCR 6.3.1
+...

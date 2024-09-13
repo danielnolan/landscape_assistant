@@ -1,0 +1,427 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants/<assistant_id>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <api_key>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Sep 2024 13:30:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-unejx91urqkrngkx4pspqdo4
+      X-Request-Id:
+      - req_c61c0762acc2af332c82e90039965042
+      Openai-Processing-Ms:
+      - '60'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=3cN9_pDoYUeOOjFcgRu_Ok5xtFEpa0KJbysjMxIVLyI-1726234216-1.0.1.1-aV7ioGLv6keiQdo82QdgqRVYDPHzBAARf5Qwc5AwG63F_xh6HZaZtI_dW4X2g4iF5mdexP8T9UO0SafYWCnvVA;
+        path=/; expires=Fri, 13-Sep-24 14:00:16 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=HapQ5VcPPyi7Qoe6sfIwDWS9iO6YdVzLhf7QoHrouMY-1726234216158-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c287daa4e8c0711-ATL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "<assistant_id>",
+          "object": "assistant",
+          "created_at": 1712965346,
+          "name": "Hummingbird Holler's Horticulture Hero",
+          "description": null,
+          "model": "gpt-4o-mini",
+          "instructions": "You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6",
+          "tools": [
+            {
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "description": "Determine weather in my location",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "string",
+                      "description": "Latitude and longitude separated by a comma"
+                    },
+                    "units": {
+                      "type": "string",
+                      "description": "Units to display measurements in",
+                      "enum": [
+                        "imperial",
+                        "metric"
+                      ]
+                    },
+                    "fields": {
+                      "type": "array",
+                      "description": "Fields is an array of strings for the API to return in it's response",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "temperature",
+                          "humidity",
+                          "pressureSeaLevel",
+                          "windSpeed",
+                          "windDirection",
+                          "weatherCode",
+                          "visibility",
+                          "pollutantO3",
+                          "windGust",
+                          "cloudCover",
+                          "precipitationType",
+                          "precipitationProbability",
+                          "pollutantCO",
+                          "mepIndex",
+                          "mepHealthConcern",
+                          "mepPrimaryPollutant",
+                          "cloudBase",
+                          "cloudCeiling",
+                          "cloudCover",
+                          "dewPoint",
+                          "epaIndex",
+                          "epaHealthConcern",
+                          "epaPrimaryPollutant",
+                          "temperatureApparent",
+                          "fireIndex",
+                          "pollutantNO2",
+                          "pollutantO3",
+                          "particulateMatter10",
+                          "particulateMatter25",
+                          "grassIndex",
+                          "treeIndex",
+                          "weedIndex",
+                          "pressureSurfaceLevel",
+                          "solarGHI",
+                          "pollutantSO2",
+                          "uvIndex",
+                          "uvHealthConcern",
+                          "windGust"
+                        ]
+                      }
+                    },
+                    "timesteps": {
+                      "type": "array",
+                      "description": "array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "1h",
+                          "1d",
+                          "current"
+                        ]
+                      }
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "description": "Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "description": "End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."
+                    }
+                  },
+                  "required": [
+                    "location",
+                    "fields"
+                  ]
+                },
+                "strict": false
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "save_conversation",
+                "description": "Save the current conversation with a clever title based on the conversation messages",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "The clever title for the thread based off the conversation messages"
+                    },
+                    "thread_id": {
+                      "type": "string",
+                      "description": "The current thread id to save"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "thread_id"
+                  ]
+                },
+                "strict": false
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_local_weather_and_soil_moisture",
+                "description": "Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                },
+                "strict": false
+              }
+            }
+          ],
+          "top_p": 1.0,
+          "temperature": 0.2,
+          "tool_resources": {},
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: Fri, 13 Sep 2024 13:30:16 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants/<assistant_id>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <api_key>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Sep 2024 13:30:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-unejx91urqkrngkx4pspqdo4
+      X-Request-Id:
+      - req_3a0b613f9e7791049c8cb7680e808456
+      Openai-Processing-Ms:
+      - '193'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=uUx4dV55Zyj4vG1yHF3T6r1lNT23pGKgtyCv5_6xZzs-1726234216-1.0.1.1-conGxok9ypP_KHRKsxnpKeiB6GtUOpL7HF91kqqTfHi.wSHnQWLUns3V4QmcBjqGdrLIT89Qt22tlaWd30_EFg;
+        path=/; expires=Fri, 13-Sep-24 14:00:16 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=hZpSefYkhkIwaLUDIaMn_AMjnAS4T5Xrkyukw2rO66g-1726234216561-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c287dabe9f753ab-ATL
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "<assistant_id>",
+          "object": "assistant",
+          "created_at": 1712965346,
+          "name": "Hummingbird Holler's Horticulture Hero",
+          "description": null,
+          "model": "gpt-4o-mini",
+          "instructions": "You are an expert landscape, garden, and lawn assistant for our property in Canton, North Carolina located at 35.46319, -82.8722, and is 2750ft above sea level. \nThe property is branded we call it \"Hummingbird Holler\". Your name is Hummingbird Holler's Horticulture Hero. \nUse the imperial system for units of measure, and format dates in MM/DD/YY format and time in 12 hour format. \nWhen listing days use text abbreviations like Mon.\n\nWe don't want you to recommend any plants that are invasive, difficult to grow, or poisonous to dogs.\nOur lawn is tall fescue grass.\nIn our bee and butterfly sanctuary we have planted zinnias,  petunias,  phlox, bee balm, salvia, black eyed susans, swamp milkweed, and a miss molly butterfly bush all planted in the ground. \nWe have a knockout rose bush planted in a container. \nWe have 3 raised beds in our garden: \n1. has sweet basil, eggplant, cucumber, flat italian parsley, cilantro, lemon thyme, rosemary.\n2. roma tomatoes, grape tomatoes, and a summer sandwich tomato. \n3. zucchini, summer squash, yellow bell pepper, cubanelle sweet pepper, sweet banana pepper, jalapeno pepper, serrano pepper, habanero pepper. \nThe soil sensors are arranged as follows: Raised bed 1 = Channel 1, Raised bed 2 =  Channel 2,, Raised bed 3 = Channel 3 , Bee and Butterfly Sanctuary 1 = Channel 4, Bee and Butterfly Sanctuary 2 = Channel 5, Knockout  Rose Channel = 6",
+          "tools": [
+            {
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "description": "Determine weather in my location",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "string",
+                      "description": "Latitude and longitude separated by a comma"
+                    },
+                    "units": {
+                      "type": "string",
+                      "description": "Units to display measurements in",
+                      "enum": [
+                        "imperial",
+                        "metric"
+                      ]
+                    },
+                    "fields": {
+                      "type": "array",
+                      "description": "Fields is an array of strings for the API to return in it's response",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "temperature",
+                          "humidity",
+                          "pressureSeaLevel",
+                          "windSpeed",
+                          "windDirection",
+                          "weatherCode",
+                          "visibility",
+                          "pollutantO3",
+                          "windGust",
+                          "cloudCover",
+                          "precipitationType",
+                          "precipitationProbability",
+                          "pollutantCO",
+                          "mepIndex",
+                          "mepHealthConcern",
+                          "mepPrimaryPollutant",
+                          "cloudBase",
+                          "cloudCeiling",
+                          "cloudCover",
+                          "dewPoint",
+                          "epaIndex",
+                          "epaHealthConcern",
+                          "epaPrimaryPollutant",
+                          "temperatureApparent",
+                          "fireIndex",
+                          "pollutantNO2",
+                          "pollutantO3",
+                          "particulateMatter10",
+                          "particulateMatter25",
+                          "grassIndex",
+                          "treeIndex",
+                          "weedIndex",
+                          "pressureSurfaceLevel",
+                          "solarGHI",
+                          "pollutantSO2",
+                          "uvIndex",
+                          "uvHealthConcern",
+                          "windGust"
+                        ]
+                      }
+                    },
+                    "timesteps": {
+                      "type": "array",
+                      "description": "array of timestep strings. The timesteps can be current, 1d or 1h. Current for realtime, 1h for hourly, 1d for daily",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "1h",
+                          "1d",
+                          "current"
+                        ]
+                      }
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "description": "Start time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5 days in the future."
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "description": "End time can be 'now', 'nowPlusXm/h/d', 'nowMinusXm/h/d' (defaults to now). Can't be more than 5d in the future."
+                    }
+                  },
+                  "required": [
+                    "location",
+                    "fields"
+                  ]
+                },
+                "strict": false
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "save_conversation",
+                "description": "Save the current conversation with a clever title based on the conversation messages",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "The clever title for the thread based off the conversation messages"
+                    },
+                    "thread_id": {
+                      "type": "string",
+                      "description": "The current thread id to save"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "thread_id"
+                  ]
+                },
+                "strict": false
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_local_weather_and_soil_moisture",
+                "description": "Get realtime local weatehr data and soil mositure from the sensors in our yard and garden.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                },
+                "strict": false
+              }
+            }
+          ],
+          "top_p": 1.0,
+          "temperature": 0.2,
+          "tool_resources": {},
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: Fri, 13 Sep 2024 13:30:16 GMT
+recorded_with: VCR 6.3.1
