@@ -3,7 +3,6 @@ class ToolCallHandler
 
   def initialize(stream_broadcaster)
     @stream_broadcaster = stream_broadcaster
-    @tools = Tools.new
   end
 
   def call
@@ -12,7 +11,7 @@ class ToolCallHandler
 
   private
 
-  attr_reader :stream_broadcaster, :tools
+  attr_reader :stream_broadcaster
 
   def tools_to_call
     stream_broadcaster.chunk.dig(
@@ -45,5 +44,9 @@ class ToolCallHandler
     )
   ensure
     Faraday.default_connection.close
+  end
+
+  def tools
+    @tools ||= Tools.new
   end
 end
