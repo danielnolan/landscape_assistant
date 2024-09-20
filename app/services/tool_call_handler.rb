@@ -1,8 +1,8 @@
 class ToolCallHandler
   def self.call(...) = new(...).call
 
-  def initialize(response_broadcaster)
-    @response_broadcaster = response_broadcaster
+  def initialize(stream_broadcaster)
+    @stream_broadcaster = stream_broadcaster
     @tools = Tools.new
   end
 
@@ -12,10 +12,10 @@ class ToolCallHandler
 
   private
 
-  attr_reader :response_broadcaster, :tools
+  attr_reader :stream_broadcaster, :tools
 
   def tools_to_call
-    response_broadcaster.chunk.dig(
+    stream_broadcaster.chunk.dig(
       "required_action", "submit_tool_outputs", "tool_calls"
     )
   end
@@ -35,12 +35,12 @@ class ToolCallHandler
     Rails.logger.debug("handle tools called")
     Rails.logger.debug(tool_outputs)
 
-    response_broadcaster.client.runs.submit_tool_outputs(
-      thread_id: response_broadcaster.thread_id,
-      run_id: response_broadcaster.chunk.dig("id"),
+    stream_broadcaster.client.runs.submit_tool_outputs(
+      thread_id: stream_broadcaster.thread_id,
+      run_id: stream_broadcaster.chunk.dig("id"),
       parameters: {
         tool_outputs: tool_outputs,
-        stream: response_broadcaster
+        stream: stream_broadcaster
       }
     )
   ensure

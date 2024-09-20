@@ -1,8 +1,8 @@
-<%= form_with model: @message, method: :post do |form| %>
+<%= form_with model: @message, method: :post, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
   <%= form.hidden_field :thread_id, value: @thread_id %>
   <div class="d-flex flex-row w-75">
     <div class="input-group mb-3 flex-grow-1">
-      <%= form.text_field :content, class: "form-control", placeholder: "How can I help?" %>
+      <%= form.text_field :content, class: "form-control", placeholder: "How can I assist?" %>
       <%= form.submit "Send", class: "btn btn-outline-secondary" %>
     </div>
   </div>

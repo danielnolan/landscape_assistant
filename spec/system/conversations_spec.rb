@@ -24,7 +24,7 @@ RSpec.describe "Conversations" do
     VCR.use_cassettes cassettes do
       visit root_url
 
-      fill_in "How can I help?", with: "Hey what's up"
+      fill_in "How can I assist?", with: "Hey what's up"
       click_button "Send"
       perform_enqueued_jobs
 
