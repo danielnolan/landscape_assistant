@@ -1,7 +1,16 @@
 <%= tag.div id: dom_id(message),
-  class: class_names('p-2', { 'bg-secondary-subtle': message.assistant_message? }) do %>
-  <%= tag.span class: "badge bg-info mb-1" do %> 
-    <%= message.role %>
+  class: class_names('p-2 d-flex rounded border border-1 mt-2',
+                     {'bg-secondary-subtle': message.assistant_message?}) do %>
+  <%= tag.div class: "me-2" do %>
+    <%= tag.span class: "mb-1" do %>
+      <% if message.assistant_message? %>
+        <i class="bi bi-robot"></i>
+      <% else %>
+        <i class="bi bi-person-fill"></i>
+      <% end %>
+    <% end %>
   <% end %>
-  <%= markdown(message.content) %>
+  <%= tag.div do %>
+    <%= markdown(message.content) %>
+  <% end %>
 <% end %>

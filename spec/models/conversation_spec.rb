@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Conversation, type: :model do
+RSpec.describe Conversation do
   describe "validations" do
     subject { FactoryBot.build(:conversation) }
     it { should validate_presence_of(:title) }

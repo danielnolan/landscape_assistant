@@ -1,11 +1,9 @@
 <%= form_with model: @message, method: :post do |form| %>
   <%= form.hidden_field :thread_id, value: @thread_id %>
   <div class="d-flex flex-row w-75">
-    <div class="flex-grow-1">
+    <div class="input-group mb-3 flex-grow-1">
       <%= form.text_field :content, class: "form-control", placeholder: "How can I help?" %>
-    </div>
-    <div class="ms-2">
-      <%= form.submit "Send", class: "btn btn-primary" %>
+      <%= form.submit "Send", class: "btn btn-outline-secondary" %>
     </div>
   </div>
 <% end %>
