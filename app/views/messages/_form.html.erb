@@ -1,0 +1,6 @@
+<%= form_with model: @message, method: :post do |form| %>
+  <%= form.label :content, "Message" %>
+  <%= form.text_field :content %>
+  <%= form.hidden_field :thread_id, value: @thread_id %>
+  <%= form.submit "Send" %>
+<% end %>
