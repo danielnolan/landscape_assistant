@@ -88,6 +88,7 @@ production:
     <<: *default
     database: landscape_assistant_production
     username: landscape_assistant
+    username: <%= ENV["LANDSCAPE_ASSISTANT_DATABASE_USER"] %>
     password: <%= ENV["LANDSCAPE_ASSISTANT_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production

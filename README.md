@@ -7,30 +7,22 @@ Create an API key at https://tomorrow.io to use for the weather
 forecast.
 
 ## Dependencies
-* Ruby 3.3.2
-
+* Rails 8.0.2
+* Ruby 3.4.1
 * PostgreSQL 14
-
 * Redis 7.2.5
 
 ## Running the app
 * run `bin/setup`
-* run `rails credentials:edit` and add the following secrets. If you
-  don't an have ecowitt weather station, that's fine you just won't configure that
-  function for your assistant.
+* You need to create a .env file
 
-``` yaml
-open_ai:
-  api_key: ""
-  assistant_id: ""
-
-ecowitt:
-  api_key: ""
-  application_key: ""
-  mac_address: ""
-
-tomorrow_io:
-  api_key: ""
-```
-* run `bin/rails s` to start the server, site should be available at
-  http://127.0.0.1:3000
+``` env
+OPEN_AI_API_KEY=
+OPEN_AI_ASSISTANT_ID=
+ECOWITT_API_KEY=
+ECOWITT_APPLICATION_KEY=
+ECOWITT_MAC_ADDRESS=
+TOMORROW_IO_API_KEY=
+SECRET_KEY_BASE=
+LANDSCAPE_ASSISTANT_DATABASE_USER=
+LANDSCAPE_ASSISTANT_DATABASE_PASSWORD=
