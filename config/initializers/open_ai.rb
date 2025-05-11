@@ -1,4 +1,4 @@
 OpenAI.configure do |config|
-  config.access_token = Rails.application.credentials.open_ai.fetch(:api_key)
+  config.access_token = ENV["OPEN_AI_API_KEY"]
   config.log_errors = true 
 end

@@ -1,6 +1,6 @@
 class Tools
   def get_weather(arguments)
-    weather_api_key = Rails.application.credentials.tomorrow_io.dig("api_key")
+    weather_api_key = ENV["TOMORROW_IO_API_KEY"]
     Rails.logger.debug("get weather called")
     Rails.logger.debug(Time.current)
     Rails.logger.debug(arguments)
@@ -22,10 +22,9 @@ class Tools
     Rails.logger.debug("get local soil and weather called")
     Rails.logger.debug(arguments)
     Rails.logger.debug(Time.current)
-    ecowitt = Rails.application.credentials.ecowitt
-    api_key = ecowitt.dig("api_key")
-    application_key = ecowitt.dig("application_key")
-    mac_address = ecowitt.dig("mac_address")
+    api_key = ENV["ECOWITT_API_KEY"]
+    application_key = ENV["ECOWITT_APPLICATION_KEY"]
+    mac_address = ENV["ECOWITT_MAC_ADDRESS"]
     url = "https://api.ecowitt.net/api/v3/device/real_time?application_key=#{application_key}&api_key=#{api_key}&mac=#{mac_address}"
     connection = Faraday.new(url) do |builder|
       builder.adapter :async_http
