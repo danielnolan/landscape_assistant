@@ -39,16 +39,15 @@ class Run
   end
 
   def broadcast_response
-    Turbo::StreamsChannel.broadcast_append_to(
+    Turbo::StreamsChannel.broadcast_render_to(
       :messages,
-      target: "messages",
-      partial: "messages/message",
-      locals: {message: assistant_message}
+      partial: "messages/assistant_message",
+      locals: { message: assistant_message }
     )
   end
 
   def assistant_message
-    Message.new(id: "assistant_#{message_id}", content: content, role: "assistant")
+    @assistant_message ||= Message.new(id: message_id, content: content, role: "assistant")
   end
 
   def handle_tool_calls(chunk)

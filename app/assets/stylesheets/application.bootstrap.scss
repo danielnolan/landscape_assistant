@@ -1,2 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+#messages * {
+  overflow-anchor: none;
+}
+
+#messages_anchor {
+  overflow-anchor: auto;
+  height: 1px;
+}

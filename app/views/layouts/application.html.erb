@@ -10,7 +10,22 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="overflow-hidden">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <%= link_to(root_path, class: "navbar-brand") do %>
+          <%= image_tag('logo.png', width: 50, height: 50, class: "d-inline-block align-text-middle")%>
+          <%= assistant_name %>
+        <% end %>
+      </div>
+    </nav>
+    <main class="content">
+      <%= yield %>
+    </main>
+    <footer class="footer fixed-bottom">
+      <div class="container">
+        <%= content_for :footer %>
+      </div>
+    </footer>
   </body>
 </html>

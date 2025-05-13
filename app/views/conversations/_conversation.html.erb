@@ -1,4 +1,14 @@
-<li id="<%= dom_id(conversation) %>" class="nav-item">
-  <%= l conversation.created_at %>
-  <%= link_to(conversation.title, root_path(thread_id: conversation.thread_id), class: "nav-link") %>
+<li id="<%= dom_id(conversation) %>" class="p-2 border-bottom bg-body-tertiary">
+  <a href="#!" class="d-flex justify-content-between">
+    <div class="d-flex flex-row">
+      <div class="pt-1">
+        <p class="fw-bold mb-0">
+          <%= link_to(conversation.title, root_path(thread_id: conversation.thread_id), class: "nav-link") %>
+        </p>
+      </div>
+    </div>
+    <div class="pt-1">
+      <p class="small text-muted mb-1"><%= distance_of_time_in_words(Time.current, conversation.created_at) %> ago</p>
+    </div>
+  </a>
 </li>
