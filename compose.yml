@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
+      - "80:3000"
     environment:
       DB_HOST: postgres
       LANDSCAPE_ASSISTANT_DATABASE_PASSWORD: ${LANDSCAPE_ASSISTANT_DATABASE_PASSWORD}
