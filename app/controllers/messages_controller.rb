@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params).create
+    @assistant_message = Message.new(role: "assistant", content: "Thinking ...", id: @message.id, thread_id: @message.thread_id)
     CreateRunJob.perform_later(@message.id, @message.thread_id)
     respond_to do |format|
       format.turbo_stream

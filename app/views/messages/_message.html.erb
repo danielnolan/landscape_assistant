@@ -1,7 +1,18 @@
-<%= tag.div id: dom_id(message),
-  class: class_names('p-2', { 'bg-secondary-subtle': message.assistant_message? }) do %>
-  <%= tag.span class: "badge bg-info mb-1" do %> 
-    <%= message.role %>
+<%= tag.li id: dom_id(message, message.assistant_message? ? :assistant : nil), class: "d-flex justify-content-between mb-4" do %>
+  <% if !message.assistant_message? %>
+    <%= image_tag "user.png", class: "rounded-circle d-flex align-self-start me-3 shadow-1-strong", width: 60   %>
   <% end %>
-  <%= markdown(message.content) %>
+  <%= tag.div class: "card w-100" do %>
+    <div class="card-header d-flex justify-content-between p-3">
+      <p class="fw-bold mb-0"><%= message.role %></p>
+    </div>
+    <div class="card-body">
+      <p class="mb-0">
+        <%= markdown(message.content) %>
+      </p>
+    </div>
+  <% end %>
+  <% if message.assistant_message? %>
+    <%= image_tag "robot.png", class: "rounded-circle d-flex align-self-start me-3 shadow-1-strong", width: 60   %>
+  <% end %>
 <% end %>

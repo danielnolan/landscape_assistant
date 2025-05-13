@@ -1,30 +1,35 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <%= link_to(root_path, class: "navbar-brand") do %>
-      <%= image_tag('logo.png', width: 50, height: 50, class: "d-inline-block align-text-middle")%>
-      <%= assistant_name %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Conversations</h5>
-        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<section>
+  <div class="container-fluid py-5">
+
+    <div class="row">
+
+      <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+
+        <h5 class="font-weight-bold mb-3 text-center text-lg-start">Conversations</h5>
+
+        <div class="card">
+          <div class="card-body">
+
+            <%= turbo_stream_from :conversations %>
+            <ul id="conversations" class="list-unstyled mb-0">
+              <%= render partial: "conversations/conversation", collection: @conversations %>
+            </ul>
+
+          </div>
+        </div>
+
       </div>
-      <div class="offcanvas-body">
-        <%= turbo_stream_from :conversations %>
-        <ul id="conversations" class="navbar-nav navbar-light justify-content-end flex-grow-1 pe-3">
-          <%= render partial: "conversations/conversation", collection: @conversations %>
+
+      <div class="col-md-6 col-lg-7 col-xl-8 vh-100">
+
+        <%= turbo_stream_from :messages %>
+        <ul id="messages" class="h-75 flex-column list-unstyled overflow-scroll">
+          <%= render @messages %>
+          <li id="messages_anchor"></li>
         </ul>
+        <%= render "messages/form" %>
       </div>
     </div>
+
   </div>
-</nav>
-<main class="col px-2 pt-2">
-  <%= turbo_stream_from :messages %>
-  <div id="messages" class="mb-4">
-    <%= render @messages %>
-  </div>
-  <%= render "messages/form" %>
-</main>
+</section>
