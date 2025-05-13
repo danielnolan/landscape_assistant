@@ -51,7 +51,7 @@ class Run
   end
 
   def handle_tool_calls(chunk)
-    Rails.logger.debug("handle tools called")
+    Rails.logger.info("handle tools called")
     tools_to_call = chunk.dig("required_action", "submit_tool_outputs", "tool_calls")
     my_tool_outputs = tools_to_call.map do |tool|
       function_name = tool.dig("function", "name")
@@ -62,7 +62,7 @@ class Run
       end
     end.map(&:wait)
 
-    Rails.logger.debug(my_tool_outputs)
+    Rails.logger.info(my_tool_outputs)
 
     client.runs.submit_tool_outputs(
       thread_id: thread_id,
