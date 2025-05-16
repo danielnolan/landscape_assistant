@@ -1,7 +1,7 @@
 <%= form_with model: @message, method: :post, class: "mb-5", data: { controller: :form } do |form| %>
-    <div class="form-floating">
+    <fieldset class="form-floating" data-form-target="disableable">
       <%= form.text_field :content, class: "form-control bg-body-tertiary", autocomplete: "off" %>
       <%= form.label "Message", for: :content, class: "form-label" %>
-    </div>
+    </fieldset>
     <%= form.hidden_field :thread_id, value: @thread_id %>
   <% end %>
