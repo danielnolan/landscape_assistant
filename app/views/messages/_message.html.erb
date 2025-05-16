@@ -1,6 +1,6 @@
 <%= tag.li id: dom_id(message, message.assistant_message? ? :assistant : nil), class: "d-flex justify-content-between mb-4" do %>
   <% if !message.assistant_message? %>
-    <i class="bi bi-person-fill me-3", style="font-size: 3rem" ></i>
+    <i class="bi bi-person me-3", style="font-size: 3rem" ></i>
   <% end %>
   <%= tag.div class: "card w-100" do %>
     <div class="card-header d-flex justify-content-between p-3">
