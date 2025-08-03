@@ -27,7 +27,7 @@
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000, 5432, 6379],
+  // "forwardPorts": [],
 
   // Configure tool-specific properties.
   // "customizations": {},
@@ -35,14 +35,8 @@
   // Uncomment to connect as root instead. More info: https://containers.dev/implementors/json_reference/#remoteUser.
   // "remoteUser": "root",
 
-  "mounts": [
-    "source=${localEnv:HOME}/dotfiles,target=/home/vscode/dotfiles,type=bind,consistency=cached"
-  ],
-
-
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "setup_rails": "bin/setup --skip-server",
-    "dotfiles": "/home/vscode/dotfiles/install.sh"
+    "setup_rails": "bin/setup --skip-server"
   }
 }
