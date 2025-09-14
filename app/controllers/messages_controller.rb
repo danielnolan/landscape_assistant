@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
       convo = client.conversations.create
       client.conversations.items.create(
         convo.id,
-        {items: [{role: "developer", content: "here is the conhversation id: #{convo.id}"}]}
+        {items: [{role: "developer", content: "here is the conversation id: #{convo.id}"}]}
       )
       convo
     end
