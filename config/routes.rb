@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :messages, only: :create
-  resources :conversations, only: :index
-  root to: "conversations#index"
+  resources :messages, only: [:index, :create]
+  root to: "messages#index"
 end

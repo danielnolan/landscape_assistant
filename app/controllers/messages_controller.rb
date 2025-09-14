@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
-  def new
+  def index
+    @message = Message.new(conversation_id: conversation.id, role: "user")
+    @conversations = Conversation.order(created_at: :desc)
+    @messages = messages
   end
 
   def create
@@ -12,6 +15,37 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def conversation
+    @conversation ||= if params[:conversation_id].present?
+      client.conversations.retrieve(params[:conversation_id])
+    else
+      convo = client.conversations.create
+      client.conversations.items.create(
+        convo.id,
+        {items: [{role: "developer", content: "here is the conhversation id: #{convo.id}"}]}
+      )
+      convo
+    end
+  end
+
+  def messages
+    items = client.conversations.items.list(conversation.id, limit: 100)
+    items.data.reverse.filter_map do |item|
+      if item.is_a?(OpenAI::Models::Conversations::Message) && item.role.in?([:user, :assistant])
+        Message.new(
+          id: item.id,
+          role: item.role,
+          content: item.content.first[:text],
+          conversation_id: conversation.id
+        )
+      end
+    end
+  end
+
+  def client
+    @client ||= OpenAI::Client.new
+  end
 
   def message_params
     params.require(:message).permit(:content, :conversation_id).merge(role: "user", id: Random.new.rand(1000000))
