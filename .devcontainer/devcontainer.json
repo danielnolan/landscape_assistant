@@ -37,6 +37,7 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "setup_rails": "bin/setup --skip-server"
+    "setup_rails": "bin/setup --skip-server",
+    "install ruby-lsp": "gem install ruby-lsp"
   }
 }

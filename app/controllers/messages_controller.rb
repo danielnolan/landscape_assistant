@@ -1,12 +1,11 @@
 class MessagesController < ApplicationController
   def new
-    @message = Message.new
   end
 
   def create
-    @message = Message.new(message_params).create
-    @assistant_message = Message.new(role: "assistant", content: "Thinking ...", id: @message.id, thread_id: @message.thread_id)
-    CreateRunJob.perform_later(@message.id, @message.thread_id)
+    @message = Message.new(message_params)
+    @assistant_message = Message.new(role: "assistant", content: "Thinking ...", id: @message.id)
+    CreateResponseJob.perform_later(params: @message.attributes)
     respond_to do |format|
       format.turbo_stream
     end
@@ -15,6 +14,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content, :thread_id).merge(role: "user")
+    params.require(:message).permit(:content, :conversation_id).merge(role: "user", id: Random.new.rand(1000000))
   end
 end

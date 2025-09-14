@@ -15,7 +15,7 @@
 
             <%= turbo_stream_from :conversations %>
             <ul id="conversations" class="list-unstyled mb-0">
-              <%= render partial: "conversations/conversation", collection: @conversations %>
+              <%#= render partial: "conversations/conversation", collection: @conversations %>
             </ul>
 
           </div>
@@ -27,7 +27,7 @@
 
         <%= turbo_stream_from :messages %>
         <ul id="messages" class="h-75 p-5 flex-column list-unstyled overflow-scroll">
-          <%= render @messages %>
+          <%#= render "messages", messasges: @messages %>
           <li id="messages_anchor"></li>
         </ul>
         <%= render "messages/form" %>

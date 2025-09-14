@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= assistant_name %></title>
+    <title><%= ENV["ASSISTANT_NAME"] %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
       <div class="container-fluid">
         <%= link_to(root_path, class: "navbar-brand") do %>
           <%= image_tag('logo.png', width: 50, height: 50, class: "d-inline-block align-text-middle")%>
-          <%= assistant_name %>
+          <%= ENV["ASSISTANT_NAME"] %>
         <% end %>
       </div>
     </nav>
