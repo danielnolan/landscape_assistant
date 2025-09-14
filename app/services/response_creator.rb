@@ -3,17 +3,17 @@ class ResponseCreator
     input = [{role: "user", content: message.content}]
     stream = client.responses.stream(
       input: input,
+      conversation: message.conversation_id,
       prompt: {id: ENV["OPENAI_PROMPT_ID"]}
     )
     stream_and_broadcast(stream:, message:)
 
     response = stream.get_final_response
-    input += response.output
-
     input_with_tool_calls = handle_tool_calls(input:, outputs: response.output)
 
     stream_with_tool_output = client.responses.stream(
       input: input_with_tool_calls,
+      conversation: message.conversation_id,
       prompt: {id: ENV["OPENAI_PROMPT_ID"]}
     )
     stream_and_broadcast(stream: stream_with_tool_output, message:)
@@ -38,8 +38,7 @@ class ResponseCreator
   def stream_and_broadcast(stream:, message:)
     content = ""
     stream.each do |event|
-      puts("--- events from stream ---")
-      puts event
+      Rails.logger.debug event
       if event.is_a?(OpenAI::Streaming::ResponseTextDeltaEvent)
         content << event.delta
         assistant_message = Message.new(id: message.id, content:, role: "assistant")

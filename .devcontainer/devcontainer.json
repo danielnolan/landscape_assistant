@@ -19,7 +19,12 @@
         "version": "stable"
     }
   },
-
+  "mounts": [
+    "source=${SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  },
   "containerEnv": {
     "REDIS_URL": "redis://redis:6379/1",
     "DB_HOST": "postgres"
