@@ -1,3 +1,2 @@
 <%= turbo_stream.before "messages_anchor", @message %>
 <%= turbo_stream.before "messages_anchor", @assistant_message, partial: "messages/message", locals: { message: @assistant_message } %>
-

@@ -3,13 +3,13 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="form"
 export default class extends Controller {
   static targets = ["disableable"]
-  connect() {
+  initialize() {
     addEventListener("turbo:submit-start", ((event) => {
-      this.disableableTarget.disable();
+      this.disableableTarget.disabled = true;
     }))
     addEventListener("turbo:submit-end", ((event) => {
       this.reset();
-      this.disableableTarget.enable();
+      this.disableableTarget.disabled = false;
     }))
   }
 

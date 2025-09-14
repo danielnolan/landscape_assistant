@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_16_224333) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_14_153940) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "conversations", force: :cascade do |t|
     t.string "title", null: false
-    t.string "thread_id", null: false
+    t.string "conversation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["thread_id"], name: "index_conversations_on_thread_id", unique: true
+    t.index ["conversation_id"], name: "index_conversations_on_conversation_id", unique: true
   end
 end
