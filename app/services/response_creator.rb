@@ -1,6 +1,6 @@
 class ResponseCreator
   def create_response(message:)
-    stream = client.responses.stream(
+    stream = open_ai_client.responses.stream(
       input: message.content,
       conversation: message.conversation_id,
       prompt: {id: ENV["OPENAI_PROMPT_ID"]}
@@ -11,7 +11,7 @@ class ResponseCreator
     tool_call_outputs = handle_tool_calls(outputs: response.output)
 
     unless tool_call_outputs.empty?
-      stream_with_tool_input = client.responses.stream(
+      stream_with_tool_input = open_ai_client.responses.stream(
         input: tool_call_outputs,
         conversation: message.conversation_id,
         prompt: {id: ENV["OPENAI_PROMPT_ID"]}
@@ -48,8 +48,8 @@ class ResponseCreator
     content
   end
 
-  def client
-    @client ||= OpenAI::Client.new
+  def open_ai_client
+    OpenAIClient.insance.client
   end
 
   def broadcast_response(assistant_message)

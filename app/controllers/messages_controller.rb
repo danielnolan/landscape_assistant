@@ -18,10 +18,10 @@ class MessagesController < ApplicationController
 
   def conversation
     @conversation ||= if params[:conversation_id].present?
-      client.conversations.retrieve(params[:conversation_id])
+      open_ai_client.conversations.retrieve(params[:conversation_id])
     else
-      convo = client.conversations.create
-      client.conversations.items.create(
+      convo = open_ai_client.conversations.create
+      open_ai_client.conversations.items.create(
         convo.id,
         {items: [{role: "developer", content: "here is the conversation id: #{convo.id}"}]}
       )
@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
   end
 
   def messages
-    items = client.conversations.items.list(conversation.id, limit: 100)
+    items = open_ai_client.conversations.items.list(conversation.id, limit: 100)
     items.data.reverse.filter_map do |item|
       if item.is_a?(OpenAI::Models::Conversations::Message) && item.role.in?([:user, :assistant])
         Message.new(
@@ -41,10 +41,6 @@ class MessagesController < ApplicationController
         )
       end
     end
-  end
-
-  def client
-    @client ||= OpenAI::Client.new
   end
 
   def message_params
