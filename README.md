@@ -7,8 +7,8 @@ Create an API key at https://tomorrow.io to use for the weather
 forecast.
 
 ## Dependencies
-* Rails 8.0.2
-* Ruby 3.4.1
+* Rails 8.0.3
+* Ruby 3.4.5
 * PostgreSQL 14
 * Redis 7.2.5
 
