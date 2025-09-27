@@ -3,7 +3,12 @@ class ResponseCreator
     stream = open_ai_client.responses.stream(
       input: message.content,
       conversation: message.conversation_id,
-      prompt: {id: ENV["OPENAI_PROMPT_ID"]}
+      prompt: {id: ENV["OPENAI_PROMPT_ID"]},
+      tools: [
+        Tools::GetLocalWeatherAndSoilMoisture,
+        Tools::GetWeather,
+        Tools::SaveConversation
+      ]
     )
     stream_and_broadcast(stream:, message:)
 
@@ -25,7 +30,8 @@ class ResponseCreator
   def handle_tool_calls(outputs:)
     outputs.filter_map do |output|
       if output.is_a?(OpenAI::Models::Responses::ResponseFunctionToolCall)
-        tool_output = tools.public_send(output.name, output.arguments)
+        Rails.logger.info("Handling tool call: #{output.name} with arguments: #{output.arguments}")
+        tool_output = output.parsed.call(arguments: output.arguments)
         {
           type: :function_call_output,
           call_id: output.call_id,
@@ -38,7 +44,6 @@ class ResponseCreator
   def stream_and_broadcast(stream:, message:)
     content = ""
     stream.each do |event|
-      Rails.logger.info event
       if event.is_a?(OpenAI::Streaming::ResponseTextDeltaEvent)
         content << event.delta
         assistant_message = Message.new(id: message.id, content:, role: "assistant")
@@ -49,7 +54,7 @@ class ResponseCreator
   end
 
   def open_ai_client
-    OpenAIClient.insance.client
+    OpenAIClient.instance.client
   end
 
   def broadcast_response(assistant_message)
