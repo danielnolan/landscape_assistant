@@ -27,12 +27,14 @@ group :development, :test do
   gem "dotenv"
   gem "factory_bot_rails"
   gem "rspec-rails", "~> 6.1.0"
-  gem "standard"
+  gem "rubocop-rails-omakase", require: false
+  gem "rubocop-rspec"
 end
 
 group :development do
   gem "web-console"
   gem "rack-mini-profiler"
+  gem "ruby-lsp-rspec", require: false
 end
 
 group :test do
