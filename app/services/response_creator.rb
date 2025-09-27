@@ -64,8 +64,4 @@ class ResponseCreator
       locals: {message: assistant_message}
     )
   end
-
-  def tools
-    @tools ||= Tools.new
-  end
 end
