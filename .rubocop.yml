@@ -9,6 +9,6 @@ plugins:
 
 Layout/IndentationConsistency:
   Enabled: true
-  EnforcedStyle: indented_internal_methods
+  EnforcedStyle: normal
 Layout/IndentationWidth:
   Enabled: true
