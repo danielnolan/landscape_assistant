@@ -5,7 +5,7 @@ Create a promt via the OpenAI API UI and get it's id and create a
 open API key to use for the app.
 Create an API key at https://tomorrow.io to use for the weather
 forecast.
-If you have Ecowitt an weather station or soil moisture sensors you
+If you have an Ecowitt weather station or soil moisture sensors you
 can pull in that data too by providing your Ecowitt API key and
 MAC address.
 
