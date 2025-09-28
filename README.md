@@ -1,10 +1,13 @@
 # Landscape Assistant
-This is for my ChatGPT powered landscape assistant, but you could use it
-with any assitant you want.
-Create an assistant via the OpenAI API UI and get it's id and create a
+This is for my ChatGPT powered landscape agent.
+This uses the new responses API and makes use of a saved prompt
+Create a promt via the OpenAI API UI and get it's id and create a
 open API key to use for the app.
 Create an API key at https://tomorrow.io to use for the weather
 forecast.
+If you have Ecowitt an weather station or soil moisture sensors you
+can pull in that data too by providing your Ecowitt API key and
+MAC Address.
 
 ## Dependencies
 * Rails 8.0.3
@@ -18,7 +21,7 @@ forecast.
 
 ``` env
 OPEN_AI_API_KEY=
-OPEN_AI_ASSISTANT_ID=
+OPEN_AI_PROMPT_ID=
 ECOWITT_API_KEY=
 ECOWITT_APPLICATION_KEY=
 ECOWITT_MAC_ADDRESS=
