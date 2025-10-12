@@ -7,8 +7,24 @@ inherit_gem:
 plugins:
   - rubocop-rspec
 
+AllCops:
+    NewCops: enable
+
+RSpec/IncludeExamples: # new in 3.6
+  Enabled: true
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Layout/IndentationConsistency:
   Enabled: true
   EnforcedStyle: normal
+
 Layout/IndentationWidth:
   Enabled: true
