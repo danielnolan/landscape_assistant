@@ -10,8 +10,8 @@ can pull in that data too by providing your Ecowitt API key and
 MAC address.
 
 ## Dependencies
-* Rails 8.0.3
-* Ruby 3.4.5
+* Rails 8.1.1
+* Ruby 3.4.7
 * PostgreSQL 14
 * Redis 7.2.5
 
